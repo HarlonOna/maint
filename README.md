@@ -27,9 +27,12 @@ sudo ./maint
 Hinweis: Beim ersten Start bietet das Script an, sich dauerhaft als /usr/local/bin/maint zu installieren, damit du es einfach durch Tippen von maint starten kannst.
 
 
-🛠 Voraussetzungen
+
+  Voraussetzungen
 
 Das Script ist für Fedora Linux optimiert. Einige Funktionen benötigen zusätzliche Pakete (wie smartmontools oder hd-idle), die das Script auf Wunsch automatisch zur Installation anbietet.
-⚖️ Lizenz
+
+
+  Lizenz
 
 Dieses Projekt ist unter der GPL-3.0 Lizenz lizenziert.
