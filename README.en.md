@@ -1,8 +1,8 @@
 # Fedora Maintenance Pro (maint) 
 
-`maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
-
 > **Note:** The script interface is currently in **German**, but it is designed to be intuitive for Linux users worldwide.
+
+`maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
 
 ##  Key Features
 - **Autopilot:** Fully automated maintenance (DNF updates, Flatpak repair, TRIM, Journal cleanup).
