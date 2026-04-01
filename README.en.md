@@ -15,13 +15,13 @@
 ##  Quick Start
 You can download and run the script with a single command:
 
-#
+```bash
 curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint.sh
 
 chmod +x maint.sh
 
 sudo ./maint.sh
-#
+```
 
 Note: Upon the first run, the script offers to install itself to /usr/local/bin/maint for easy access.
 Just type sudo maint to start it afterwards.
