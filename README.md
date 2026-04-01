@@ -17,11 +17,11 @@ Comprehensive Maintenance &amp; Diagnostic Tool for Fedora
 Du kannst das Script mit einem einzigen Befehl herunterladen und starten:
 
 
-curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_v10140.sh
+curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint.sh
 
-chmod +x maint_v10140.sh
+chmod +x maint.sh
 
-sudo ./maint_v10140.sh
+sudo ./maint.sh
 
 
 Hinweis: Beim ersten Start bietet das Script an, sich dauerhaft als /usr/local/bin/maint zu installieren, damit du es einfach durch Tippen von maint starten kannst.
