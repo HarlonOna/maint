@@ -1,9 +1,9 @@
 # Fedora Maintenance Pro (maint)
 
-`maint` ist ein leistungsstarkes, interaktives Bash-Script zur Automatisierung der Systempflege unter Fedora Linux. Es kombiniert tiefgreifende Systemwartung mit Hardware-Diagnose und Optimierungstools.
-
  > **Note:** English README
  > https://github.com/HarlonOna/maint/blob/main/README.en.md
+
+`maint` ist ein leistungsstarkes, interaktives Bash-Script zur Automatisierung der Systempflege unter Fedora Linux. Es kombiniert tiefgreifende Systemwartung mit Hardware-Diagnose und Optimierungstools.
 
 ## Hauptfunktionen
 - **Autopilot:** Vollautomatische Wartung (DNF, Flatpak, Journal-Cleanup, TRIM).
