@@ -17,7 +17,7 @@ Comprehensive Maintenance &amp; Diagnostic Tool for Fedora
 Du kannst das Script mit einem einzigen Befehl herunterladen und starten:
 
 
-curl -O https://github.com/HarlonOna/maint/blob/main/maint_v10140.sh
+curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_v10140.sh
 
 chmod +x maint_v10140.sh
 
