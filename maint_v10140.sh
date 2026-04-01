@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ###############################################################################
-# Script Name:   maint (Fedora Maintenance Pro)
-# Description:   Umfassendes Wartungs- und Diagnose-Tool für Fedora Linux.
-#                Beinhaltet Backups, Kernel-Optimierung, Hardware-Checks und mehr.
-# Author:        HarlonOna
-# Version:       10.14.0
-# License:       GPL-3.0
-# GitHub:        https://github.com/HarlonOna/maint/blob/main/maint_v10140.sh
+# Script Name:   # maint (Fedora Maintenance Pro)
+# Description:   # Umfassendes Wartungs- und Diagnose-Tool für Fedora Linux.
+#                # Beinhaltet Backups, Kernel-Optimierung, Hardware-Checks und mehr.
+# Author:        # HarlonOna
+# Version:       # 10.14.0
+# License:       # GPL-3.0
+# GitHub:        # https://github.com/HarlonOna/maint/blob/main/maint_v10140.sh
 ###############################################################################
 
 set -uo pipefail
