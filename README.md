@@ -33,3 +33,7 @@ Das Script ist für Fedora Linux optimiert. Einige Funktionen benötigen zusätz
 ## Lizenz
 
 Dieses Projekt ist unter der GPL-3.0 Lizenz lizenziert.
+#
+<p align="center">
+  <img src="maint-mainmenu.png" alt="maint screenshot" width="600">
+</p>
