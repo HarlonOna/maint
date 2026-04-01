@@ -6,7 +6,7 @@
 # Author:        [HarlonOna]
 # Version:       10.14.0
 # License:       GPL-3.0
-# GitHub:        https://github.com/HarlonOna/maint
+# GitHub:        https://github.com/HarlonOna/main/maint_v10140.sh
 ###############################################################################
 
 set -uo pipefail
