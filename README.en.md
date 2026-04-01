@@ -5,7 +5,7 @@
 `maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
 
 ##  Key Features
-- **Autopilot:** Fully automated maintenance (DNF updates, Flatpak repair, TRIM, Journal cleanup).
+- **Autopilot:** Fully automated maintenance (`DNF`, `Flatpak`, TRIM, Journal cleanup).
 - **Backup & Restore:** Easily backup system configurations, RPM package lists, and KDE Plasma settings.
 - **Hardware Diagnostics:** Check SMART status of drives and manage HDD spindown (`hd-idle`).
 - **Kernel Optimization:** Support for the high-performance **CachyOS Kernel** (incl. x86_64_v3 architecture check).
