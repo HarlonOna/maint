@@ -3,7 +3,7 @@
 # Script Name:   maint (Fedora Maintenance Pro)
 # Description:   Umfassendes Wartungs- und Diagnose-Tool für Fedora Linux.
 #                Beinhaltet Backups, Kernel-Optimierung, Hardware-Checks und mehr.
-# Author:        [HarlonOna]
+# Author:        HarlonOna
 # Version:       10.14.0
 # License:       GPL-3.0
 # GitHub:        https://github.com/HarlonOna/main/maint_v10140.sh
