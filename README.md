@@ -1,39 +1,40 @@
-# Fedora Maintenance Pro (maint)
+# Fedora Maintenance Pro (maint) 
 
- > **Note:** English README
- > https://github.com/HarlonOna/maint/blob/main/README.en.md
+ > **Note:** German README
+ > https://github.com/HarlonOna/maint/blob/main/README.de.md
 
-`maint` ist ein leistungsstarkes, interaktives Bash-Script zur Automatisierung der Systempflege unter Fedora Linux. Es kombiniert tiefgreifende Systemwartung mit Hardware-Diagnose und Optimierungstools.
+`maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
 
-## Hauptfunktionen
-- **Autopilot:** Vollautomatische Wartung (`DNF`, `Flatpak`, Journal-Cleanup, TRIM).
-- **Backup & Restore:** Sicherung von System-Konfigurationen und Paketlisten.
-- **Hardware-Check:** SMART-Status von Festplatten und HDD-Spindown-Steuerung (`hd-idle`).
-- **Kernel-Optimierung:** Unterstützung für den hochoptimierten **CachyOS-Kernel** (inkl. x86_64_v3 Check).
-- **System-Analyse:** Bootzeit-Analyse, Stresstests und detaillierte System-Infos.
-- **Desktop-Fixes:** Schnelles Zurücksetzen von KDE Plasma- oder Dolphin-Einstellungen.
+##  Key Features
+- **Autopilot:** Fully automated maintenance (`DNF`, `Flatpak`, TRIM, Journal cleanup).
+- **Backup & Restore:** Easily backup system configurations, RPM package lists, and KDE Plasma settings.
+- **Hardware Diagnostics:** Check SMART status of drives and manage HDD spindown (`hd-idle`).
+- **Kernel Optimization:** Support for the high-performance **CachyOS Kernel** (incl. x86_64_v3 architecture check).
+- **System Analysis:** Boot time analysis, stress testing, and detailed system health reports.
+- **Desktop Fixes:** Quickly reset KDE Plasma, Dolphin, or KWin configurations if they become unstable.
 
-## Installation & Start
-Du kannst das Script mit einem einzigen Befehl herunterladen und starten:
+##  Quick Start
+You can download and run the script with a single command:
 
 ```bash
-curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_de.sh
+curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_en.sh
 
-chmod +x maint_de.sh
+chmod +x maint_en.sh
 
-sudo ./maint_de.sh
+sudo ./maint_en.sh
 ```
 
-Hinweis: Beim ersten Start bietet das Script an, sich dauerhaft als /usr/local/bin/maint zu installieren, damit du es einfach durch Tippen von sudo maint starten kannst.
+Note: Upon the first run, the script offers to install itself to /usr/local/bin/maint for easy access.
+Just type sudo maint to start it afterwards.
 
-## Voraussetzungen
+## Prerequisites
 
-Das Script ist für Fedora Linux optimiert. Einige Funktionen benötigen zusätzliche Pakete (wie smartmontools oder hd-idle), die das Script auf Wunsch automatisch zur Installation anbietet.
+This script is optimized for Fedora Linux. Some advanced features require additional tools (like smartmontools or hd-idle). The script will detect missing dependencies and offer to install them for you.
 
-## Lizenz
+## License
 
-Dieses Projekt ist unter der GPL-3.0 Lizenz lizenziert.
+This project is licensed under the GPL-3.0 License.
 #
 <p align="center">
-  <img src="main_menu.png" alt="maint screenshot" width="600">
+  <img src="main_menu_en.png" alt="maint screenshot" width="600">
 </p>
