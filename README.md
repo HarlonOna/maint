@@ -17,11 +17,11 @@
 Du kannst das Script mit einem einzigen Befehl herunterladen und starten:
 
 ```bash
-curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint.sh
+curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_de.sh
 
-chmod +x maint.sh
+chmod +x maint_de.sh
 
-sudo ./maint.sh
+sudo ./maint_de.sh
 ```
 
 Hinweis: Beim ersten Start bietet das Script an, sich dauerhaft als /usr/local/bin/maint zu installieren, damit du es einfach durch Tippen von sudo maint starten kannst.
