@@ -1,6 +1,7 @@
 # Fedora Maintenance Pro (maint) 
 
-
+ > **Note:** German README
+ > https://github.com/HarlonOna/maint/blob/main/README.de.md
 
 `maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
 
@@ -33,3 +34,7 @@ This script is optimized for Fedora Linux. Some advanced features require additi
 ## License
 
 This project is licensed under the GPL-3.0 License.
+#
+<p align="center">
+  <img src="main_menu_en.png" alt="maint screenshot" width="600">
+</p>
