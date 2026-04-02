@@ -1,6 +1,6 @@
 # Fedora Maintenance Pro (maint) 
 
-> **Note:** The script interface is currently in **German**, but it is designed to be intuitive for Linux users worldwide.
+
 
 `maint` is a powerful, interactive Bash script designed to automate system maintenance, optimization, and diagnostics on Fedora Linux. It simplifies complex terminal tasks into a user-friendly menu.
 
@@ -16,11 +16,11 @@
 You can download and run the script with a single command:
 
 ```bash
-curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint.sh
+curl -O https://raw.githubusercontent.com/HarlonOna/maint/main/maint_en.sh
 
-chmod +x maint.sh
+chmod +x maint_en.sh
 
-sudo ./maint.sh
+sudo ./maint_en.sh
 ```
 
 Note: Upon the first run, the script offers to install itself to /usr/local/bin/maint for easy access.
