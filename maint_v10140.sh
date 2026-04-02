@@ -24,7 +24,7 @@ NC='\033[0m'
 ESC=$(printf '\033')
 
 # --- Einheitliche Trennlinien ---
-SEP_LINE="${MAGENTA}=======================================================${NC}"
+SEP_LINE="${MAGENTA}========================================================${NC}"
 sep() { echo -e "$SEP_LINE"; }
 
 # --- ABHÄNGIGKEITEN PRÜFEN ---
@@ -37,7 +37,7 @@ check_deps() {
     command -v fwupdmgr >/dev/null 2>&1 || missing+=("fwupd")
 
     if [ ${#missing[@]} -ne 0 ]; then
-        echo -e "${YELLOW}[WARN] Folgende Programme fehlen:${NC}"
+        echo -e "${YELLOW} [WARN] Folgende Programme fehlen:${NC}"
         for item in "${missing[@]}"; do echo -e "  - $item"; done
         read -rp "Möchten Sie diese jetzt installieren? (y/N): " choice
         if [[ "$choice" =~ ^[Yy]$ ]]; then
@@ -77,9 +77,9 @@ send_notify() {
 log() { sudo sh -c "echo '[$(date '+%Y-%m-%d %H:%M:%S')] $1' >> '$LOG_FILE'" 2>/dev/null; }
 info()    { printf "${CYAN}[INFO]${NC} %s\n" "$1";    log "[INFO] $1"; }
 success() { printf "${GREEN}[OK]${NC} %s\n" "$1";    log "[OK] $1"; }
-warn()    { printf "${YELLOW}[WARN]${NC} %s\n" "$1";    log "[WARN] $1"; }
+warn()    { printf "${YELLOW} [WARN]${NC} %s\n" "$1";    log "[WARN] $1"; }
 error()   { printf "${RED}[ERROR]${NC} %s\n" "$1";   log "[ERROR] $1"; }
-pause() { echo -en "${CYAN}Drücke [Enter] zum Fortsetzen...${NC}"; read -r; }
+pause() { echo -en "${CYAN} Drücke [Enter] zum Fortsetzen...${NC}"; read -r; }
 show_with_pager() { if command -v less >/dev/null 2>&1; then LESS=FRX less -R; else cat; fi; }
 
 # --- Terminal-Start-Funktion (mit automatischem Fallback bei fehlendem Monitor) ---
@@ -168,8 +168,8 @@ manage_hd_idle() {
         sep
         echo -e "${WHITE}${BOLD}   HDD Spindown (hd-idle) Steuerung ${NC}"
         sep
-        echo -e "${YELLOW}Schaltet mechanische Festplatten bei Inaktivität ab,${NC}"
-        echo -e "${YELLOW}um Strom zu sparen und die Lebensdauer zu verlängern.${NC}"
+        echo -e "${YELLOW} Schaltet mechanische Festplatten bei Inaktivität ab,${NC}"
+        echo -e "${YELLOW} um Strom zu sparen und die Lebensdauer zu verlängern.${NC}"
         sep
         echo -e "${CYAN} 1)${NC} HDD wählen & Spindown-Timer setzen"
         echo -e "${CYAN} 2)${NC} Aktueller Status & Config     (hd-idle läuft?)"
@@ -304,7 +304,7 @@ smart_disk_check() {
     sep
     echo -e "${WHITE}${BOLD}   SMART Hardware Check ${NC}"
     sep
-    echo -e "${YELLOW}Gesundheitszustand der Laufwerke prüfen.${NC}"
+    echo -e "${YELLOW} Gesundheitszustand der Laufwerke prüfen.${NC}"
     sep
     info "Suche Hardware..."
     mapfile -t RAW_DISKS < <(sudo smartctl --scan-open | awk '{print $1}')
@@ -419,7 +419,7 @@ kernel_menu() {
         sep
         echo -e "${WHITE}${BOLD}   Kernel-Verwaltung ${NC}"
         sep
-        echo -e "${YELLOW}Kernel installieren oder verwalten.${NC}"
+        echo -e "${YELLOW} Kernel installieren oder verwalten.${NC}"
         sep
         echo -e "${CYAN} 1)${NC} CachyOS Kernel installieren"
         echo -e "${CYAN} 2)${NC} Nicht benötigte Kernel entfernen"
@@ -444,9 +444,10 @@ remove_old_kernels() {
     sep
     echo -e "${WHITE}${BOLD}   Nicht benötigte Kernel entfernen ${NC}"
     sep
-    echo -e "${YELLOW}Warnung: Entferne nur Kernel, die du wirklich nicht mehr brauchst.${NC}"
-    echo -e "${YELLOW}Behalte mindestens einen älteren Kernel als Fallback, falls der aktuelle${NC}"
-    echo -e "${YELLOW}nicht bootet. Ohne Fallback kann das System unbrauchbar werden!${NC}"
+    echo -e "${YELLOW} Warnung: Entferne nur Kernel, die du wirklich nicht${NC}"
+    echo -e "${YELLOW} mehr brauchst.Behalte mindestens einen älteren Kernel${NC}"
+    echo -e "${YELLOW} als Fallback, falls der aktuelle nicht bootet.${NC}"
+    echo -e "${YELLOW} Ohne Fallback kann das System unbrauchbar werden!${NC}"
     sep
 
     # Aktuellen Kernel ermitteln (ohne Architektur, z.B. 6.19.9-200.fc43)
@@ -496,7 +497,7 @@ remove_old_kernels() {
     fi
 
     sep
-    echo -e "${YELLOW}Wähle die Nummer(n) des/der zu entfernenden Kernel(s) (z.B. 1 3 5).${NC}"
+    echo -e "${YELLOW}Wähle die Nummer(n) des/der zu entfernenden Kernel(s).${NC}"
     echo -e "${YELLOW}Mehrere durch Leerzeichen getrennt. Enter = Abbruch.${NC}"
     read -rp "> " choices
 
@@ -552,7 +553,7 @@ remove_old_kernels() {
         sep
         echo -e "${WHITE}${BOLD}   Systemd Service Manager ${NC}"
         sep
-        echo -e "${YELLOW}Verwalte Systemd-Dienste (Anzeige, Start, Stop, etc.).${NC}"
+        echo -e "${YELLOW} Verwalte Systemd-Dienste (Anzeige, Start, Stop, etc.)${NC}"
         sep
         echo -e "${CYAN} 1)${NC} Alle Dienste anzeigen"
         echo -e "${CYAN} 2)${NC} Laufende Dienste anzeigen"
@@ -709,7 +710,7 @@ flatpak_management() {
         sep
         echo -e "${WHITE}${BOLD}   Flatpak-Verwaltung ${NC}"
         sep
-        echo -e "${YELLOW}Verwalte Flatpak-Anwendungen (Update,Repair,Remove).${NC}"
+        echo -e "${YELLOW} Verwalte Flatpak-Anwendungen (Update,Repair,Remove).${NC}"
         sep
         echo -e "${CYAN} 1)${NC} Flatpaks Update & Repair"
         echo -e "${CYAN} 2)${NC} Installierte Flatpaks anzeigen (Liste)"
@@ -911,7 +912,7 @@ restore_menu() {
         sep
         echo -e "${WHITE}${BOLD}   Wiederherstellung aus Backup ${NC}"
         sep
-        echo -e "${YELLOW}Wähle ein Backup aus, aus dem wiederhergestellt werden soll.${NC}"
+        echo -e "${YELLOW}Wähle ein Backup, zum wiederhergestellen.${NC}"
         sep
 
         local idx=1
@@ -946,7 +947,7 @@ desktop_settings_menu() {
         sep
         echo -e "${WHITE}${BOLD}   Desktop-Einstellungen sichern/wiederherstellen ${NC}"
         sep
-        echo -e "${YELLOW}Plasma, Dolphin, KWin – nur ausgewählte Konfigdateien.${NC}"
+        echo -e "${YELLOW} Plasma, Dolphin, KWin – nur ausgewählte Konfigdateien${NC}"
         sep
         echo -e "${CYAN} 1)${NC} Desktop-Einstellungen sichern"
         echo -e "${CYAN} 2)${NC} Desktop-Einstellungen wiederherstellen"
@@ -1314,7 +1315,7 @@ main_menu() {
         echo -e "${RED}${BOLD} ⚠️ WARNUNG: Dieses Skript führt Systemänderungen${NC}"
         echo -e "${RED}${BOLD} ⚠️ OHNE weitere Passwortabfrage durch!${NC}"
         sep
-        echo -e "${WHITE}${BOLD} >>>>>> FEDORA 43 MAINTENANCE PRO v10.14.0 <<<<<<${NC}"
+        echo -e "${WHITE}${BOLD}    >>>>>> FEDORA 43 MAINTENANCE PRO v10.14.0 <<<<<<${NC}"
         sep
 
         echo -e "${WHITE}${BOLD}    [WARTUNG & UPDATES]${NC}"
@@ -1359,7 +1360,7 @@ main_menu() {
                 sep
                 echo -e "${WHITE}${BOLD}   Autopilot Wartung ${NC}"
                 sep
-                echo -e "${YELLOW}Folgende Aktionen werden ausgeführt:${NC}"
+                echo -e "${YELLOW} Folgende Aktionen werden ausgeführt:${NC}"
                 echo -e "  • Backup wichtiger Konfigurationen (max. 5 Versionen)"
                 echo -e "  • DNF System-Update (alle Pakete)"
                 echo -e "  • Flatpak Update & Repair & Unused entfernen"
@@ -1368,7 +1369,7 @@ main_menu() {
                 echo -e "  • SSD TRIM auf allen Laufwerken"
                 echo -e "  • Desktop-Benachrichtigung am Ende"
                 sep
-                read -rp "Möchten Sie den Autopiloten starten? (y/N): " auto_confirm
+                read -rp " Möchten Sie den Autopiloten starten? (y/N): " auto_confirm
                 if [[ "$auto_confirm" =~ ^[Yy]$ ]]; then
                     config_backup
                     sudo dnf upgrade --refresh -y
@@ -1395,7 +1396,7 @@ main_menu() {
                     sep
                     echo -e "${WHITE}${BOLD}   DNF Aufräumen & Historie ${NC}"
                     sep
-                    echo -e "${YELLOW}Verwaltet Paket-Transaktionen.${NC}"
+                    echo -e "${YELLOW} Verwaltet Paket-Transaktionen.${NC}"
                     sep
                     echo -e "${CYAN} 1)${NC} Autoremove     (Entf. nicht benöt. Abhängigkeiten)"
                     echo -e "${CYAN} 2)${NC} Clean All      (Leert gesamten DNF-Paket-Cache)"
@@ -1568,7 +1569,7 @@ main_menu() {
                     sep
                     echo -e "${WHITE}${BOLD}   System-Caches verwalten ${NC}"
                     sep
-                    echo -e "${YELLOW}Löscht temporäre Dateien, um Speicherplatz freizugeben.${NC}"
+                    echo -e "${YELLOW} Löscht temporäre Dateien${NC}"
                     sep
                     echo -e "${CYAN} 1)${NC} Gaming Caches löschen (Vulkan/Shader)"
                     echo -e "${CYAN} 2)${NC} Kompletter User-Cache (.cache/)"
@@ -1600,7 +1601,7 @@ main_menu() {
                  sep
                  echo -e "${WHITE}${BOLD}   Vorinstallierte Apps (Bloatware) entfernen ${NC}"
                  sep
-                 echo -e "${YELLOW}Deinstalliert ungenutzte Standard-Programme in Gruppen.${NC}"
+                 echo -e "${YELLOW} Deinstalliert ungenutzte Standard-Programme${NC}"
                  sep
                  echo -e "${CYAN} 1)${NC} Spiele & Unterhaltung"
                  echo -e "${CYAN} 2)${NC} KDE PIM / Akonadi"
@@ -1648,7 +1649,7 @@ main_menu() {
                     sep
                     echo -e "${WHITE}${BOLD}   Btrfs-Wartungsmenü ${NC}"
                     sep
-                    echo -e "${YELLOW}Pflege des Btrfs-Dateisystems der Root-Partition.${NC}"
+                    echo -e "${YELLOW} Pflege des Btrfs-Dateisystems der Root-Partition.${NC}"
                     sep
                     echo -e "${CYAN} 1)${NC} Scrub starten   (Dateisystem Fehlerprüfung)"
                     echo -e "${CYAN} 2)${NC} Scrub Status    (Fortschritt der Prüfung anzeigen)"
@@ -1680,7 +1681,7 @@ main_menu() {
                sep
                echo -e "${WHITE}${BOLD}   System Health & Infos ${NC}"
                sep
-               echo -e "${YELLOW}schneller Überblick über kritische Systemzustände.${NC}"
+               echo -e "${YELLOW} Überblick über kritische Systemzustände${NC}"
                sep
                echo -e "${BOLD}Fehlgeschlagene Services:${NC}"
                failed_services=$(systemctl list-units --state=failed --no-legend 2>/dev/null)
@@ -1726,7 +1727,6 @@ main_menu() {
                                 fi
                             fi
                             ask_and_start "inxi -Fxxxrz" "inxi"
-                            pause
                             ;;
                         3)
                             # Prüfen, ob lshw installiert ist
@@ -1766,7 +1766,7 @@ main_menu() {
                     sep
                     echo -e "${WHITE}${BOLD}   Boot-Zeit Analyse & Bootloader ${NC}"
                     sep
-                    echo -e "${YELLOW}Analysiert die Boot-Zeit und passt GRUB an.${NC}"
+                    echo -e "${YELLOW} Analysiert die Boot-Zeit und passt GRUB an.${NC}"
                     sep
                     echo -e "${CYAN} 1)${NC} Boot-Zeit Analyse (systemd-analyze)"
                     echo -e "${CYAN} 2)${NC} GRUB Bootverhalten anpassen"
@@ -1861,7 +1861,7 @@ main_menu() {
                     sep
                     echo -e "${WHITE}${BOLD}   Stresstest & Monitoring ${NC}"
                     sep
-                    echo -e "${YELLOW}Überprüfung der Systemstabilität und Hardware-Last.${NC}"
+                    echo -e "${YELLOW} Überprüfung der Systemstabilität und Hardware-Last.${NC}"
                     sep
                     echo -e "${CYAN} 1)${NC} s-tui (CPU Monitoring & Stress GUI)"
                     echo -e "${CYAN} 2)${NC} memtester (Arbeitsspeicher-Stabilitätstest)"
@@ -1884,14 +1884,36 @@ main_menu() {
                             success "memtester wurde gestartet."
                             ;;
                             3)
-                            read -rp "Wie viele CPU-Threads testen?: " s_thr
-                            read -rp "Dauer des Tests (z.B. 60s, 5m): " s_time
-                            echo -e "Methode wählen:\n1) --verbose (Detailliert)\n2) --matrixprod (Matrix-Operationen)"
-                            read -rp "Wahl (1/2): " s_meth_sel
-                            s_meth="--verbose"
-                            [[ "$s_meth_sel" == "2" ]] && s_meth="--matrixprod"
-                            info "Starte stress-ng..."
-                            ask_and_start "sudo stress-ng --cpu \"$s_thr\" --timeout \"$s_time\" $s_meth" "stress-ng"
+                            # Anzahl der CPU-Threads automatisch ermitteln
+                            local cpu_threads=$(nproc)
+                            read -rp "Dauer des Tests (z.B. 60s, 5m, 1h): " s_time
+                            echo -e "Welcher Test soll durchgeführt werden?"
+                            echo -e " 1) CPU-Intensiv (Integer, alle Kerne) – gut für erste Stabilität"
+                            echo -e " 2) FPU + Cache (Matrix, L3) – optimal für Curve Optimizer"
+                            echo -e " 3) RAM & Cache – prüft Speichercontroller und Infinity Fabric"
+                            read -rp "Wahl (1/2/3): " test_wahl
+
+                            local test_cmd=""
+                            case $test_wahl in
+                                1)
+                                    test_cmd="sudo stress-ng --cpu $cpu_threads --timeout $s_time --verify --verbose"
+                                    ;;
+                                2)
+                                    test_cmd="sudo stress-ng --matrix $cpu_threads --cache $cpu_threads --timeout $s_time --verify --verbose"
+                                    ;;
+                                3)
+                                    # Bei RAM-Test weniger Worker, aber hohe Speicherauslastung
+                                    test_cmd="sudo stress-ng --vm 4 --vm-bytes 80% --cache 8 --timeout $s_time --verify --verbose"
+                                    ;;
+                                *)
+                                    error "Ungültige Auswahl"
+                                    pause
+                                    continue
+                                    ;;
+                            esac
+
+                            info "Starte stress-ng mit: $test_cmd"
+                            ask_and_start "$test_cmd" "stress-ng"
                             success "stress-ng wurde gestartet."
                             ;;
                         0) break ;;
@@ -1904,12 +1926,12 @@ main_menu() {
                  sep
                  echo -e "${WHITE}${BOLD}   Paket Reparatur Werkzeuge ${NC}"
                  sep
-                 echo -e "${YELLOW}Hilft bei Problemen mit der Paketverwaltung (DNF/RPM).${NC}"
+                 echo -e "${YELLOW} Hilft bei Problemen mit der Paketverwaltung (DNF/RPM).${NC}"
                  sep
                  echo -e "${CYAN} 1)${NC} DNF Check        (Prüft Abhängigkeiten auf Fehler)"
                  echo -e "${CYAN} 2)${NC} Duplikate suchen (Findet doppelte Pakete)"
                  echo -e "${CYAN} 3)${NC} RPM DB Rebuild   (Repariert RPM-Datenbank)"
-                 echo -e "${CYAN} 4)${NC} RPM Verify (-Va) (Vergleicht inst. Dateien mit Orig.)"
+                 echo -e "${CYAN} 4)${NC} RPM Verify (-Va) (Vergleicht Dateien mit Orig.)"
                  sep
                  echo -e "${CYAN} 0)${NC} Zurück"
                  sep
@@ -1937,7 +1959,7 @@ main_menu() {
                  sep
                  echo -e "${WHITE}${BOLD}   Netzwerk Werkzeuge ${NC}"
                  sep
-                 echo -e "${YELLOW}Nützliche Tools zur Diagnose der Netzwerkverbindung.${NC}"
+                 echo -e "${YELLOW} Nützliche Tools zur Diagnose der Netzwerkverbindung.${NC}"
                  sep
                  echo -e "${CYAN} 1)${NC} IP Adressen      (Lokal & Extern)"
                  echo -e "${CYAN} 2)${NC} DNS Cache leeren (Bei Namensauflösungs-Problemen)"
@@ -2018,7 +2040,7 @@ main_menu() {
                 sep
                 echo -e "${WHITE}${BOLD}   Wartungs-Logs einsehen ${NC}"
                 sep
-                echo -e "${YELLOW}Zeigt die Protokolle vergangener Wartungsdurchläufe an.${NC}"
+                echo -e "${YELLOW} Zeigt die Protokolle vergangener Wartungsdurchläufe${NC}"
                 sep
                 mapfile -t FILES < <(sudo ls -1t "$SYS_LOG_DIR"/maintenance-*.log 2>/dev/null)
                 for i in "${!FILES[@]}"; do printf "${CYAN} %d)${NC} %s\n" "$((i+1))" "$(basename "${FILES[i]}")"; done
